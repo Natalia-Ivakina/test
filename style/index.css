@@ -292,7 +292,7 @@ form {
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-.plan-request,
+.plan-request:hover,
 .plan-button:hover {
   background-color: var(--color-accent);
   box-shadow: 0 0 1em var(--color-shadow);
