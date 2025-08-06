@@ -13,7 +13,7 @@
   </head>
   <body>
     <div id="wrapper">
-      <!-- _______________HEADER_______________ -->
+      <!--_______________HEADER_______________-->
       <section id="header">
         <div>
           <div class="logo">
@@ -24,7 +24,7 @@
         </div>
         <p>Your Trusted Contact for Scam Support & Protection</p>
       </section>
-      <!-- ________________MENU________________ -->
+      <!--________________MENU________________-->
       <section id="nav">
         <button id="menu">
           <img src="assets/menu-icon.png" alt="Menu" />
@@ -36,7 +36,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </section>
-      <!-- ________________MAIN________________ -->
+      <!--________________MAIN________________-->
       <section id="main">
         <h3>No cybersecurity expert in the family? Now you’ve got one.</h3>
         <p>
@@ -45,7 +45,7 @@
         </p>
         <a href="#plans">GET STARTED</a>
       </section>
-      <!-- _______________PLANS_______________ -->
+      <!--_______________PLANS_______________-->
       <section id="plans">
         <div>
           <h2>PLANS</h2>
@@ -81,19 +81,30 @@
                 </li>
               </ul>
             </div>
-            <button class="plan-request" id="plan1-btn" data-plan="1" type="button">
+            <button
+              class="plan-request"
+              id="plan1-btn"
+              data-plan="1"
+              type="button"
+            >
               REQUEST PLAN
             </button>
-            <form id="plan1-form" class="plan-form">
+            <form id="plan1-form" class="plan-form web3form">
+              <input
+                name="subject"
+                type="hidden"
+                value="Home Protection Plan"
+              />
               <input
                 class="plan-input"
+                name="email"
                 type="email"
                 placeholder="Email*"
                 required
               />
               <button class="plan-button" type="submit">SEND</button>
             </form>
-            <p id="plan1-message">You’ve successfully requested the plan.</p>
+            <p id="plan1-message" class="success-msg"></p>
           </div>
           <div class="card">
             <div class="plan-info">
@@ -126,24 +137,34 @@
                 </li>
               </ul>
             </div>
-            <button class="plan-request" id="plan2-btn" data-plan="2" type="button">
+            <button
+              class="plan-request"
+              id="plan2-btn"
+              data-plan="2"
+              type="button"
+            >
               REQUEST PLAN
             </button>
-            <form id="plan2-form" class="plan-form">
+            <form id="plan2-form" class="plan-form web3form">
+              <input
+                name="subject"
+                type="hidden"
+                value="Business Protection Plan"
+              />
               <input
                 class="plan-input"
+                name="email"
                 type="email"
                 placeholder="Email*"
                 required
               />
               <button class="plan-button" type="submit">SEND</button>
             </form>
-            <p id="plan2-message">You’ve successfully requested the plan.</p>
-            </form>
+            <p id="plan2-message" class="success-msg"></p>
           </div>
         </div>
       </section>
-      <!-- _______________ABOUT_______________ -->
+      <!--_______________ABOUT_______________-->
       <section id="about">
         <div>
           <h2>ABOUT RP SHIELD</h2>
@@ -200,38 +221,47 @@
           </div>
         </div>
       </section>
-      <!-- ______________CONTACT______________ -->
+      <!--______________CONTACT______________-->
       <section id="contact">
         <div>
           <h2>CONTACT US</h2>
           <span>Want to know more? Drop us a line!</span>
-          <p id="success-msg">You have successfully sent the message. We will contact you soon.</p>
-          <form id="contact-form">
-            <input type="text" placeholder="Name" maxlength="100" />
-            <input type="email" placeholder="Email*" required maxlength="100" />
+
+          <form id="contact-form" class="web3form">
+            <input type="text" name="name" placeholder="Name" maxlength="100" />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email*"
+              required
+              maxlength="100"
+            />
             <textarea
+              name="message"
               id="message"
               placeholder="Message"
               maxlength="1000"
             ></textarea>
             <div id="counter">0 / 1000</div>
+            <!-- Spam Protection -->
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="hidden"
+              style="display: none"
+            />
             <button type="submit">SEND</button>
           </form>
-          <p id="captcha">
-            This site is protected by reCAPTCHA and the Google
-            <a href="https://policies.google.com/privacy">Privacy Policy</a> and
-            <a href="https://policies.google.com/terms">Terms of Service</a>
-            apply.
-          </p>
-        </div>     
+          <p class="success-msg"></p>
+        </div>
       </section>
-      <!-- ______________FOOTER______________ -->
+      <!--_______________FOOTER______________-->
       <section id="footer">
         <p>Copyright © 2025 RP Shield Solutions Inc.</p>
         <img src="assets/w_logo.png" alt="Logo" />
       </section>
     </div>
-    <!-- ______________SCRIPTS______________ -->
+    <!--_______________SCRIPTS_______________-->
     <script src="scripts/index.js"></script>
   </body>
 </html>
