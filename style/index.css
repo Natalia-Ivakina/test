@@ -10,7 +10,9 @@
   --color-shadow: rgba(112, 110, 110, 0.6);
   --color-semi-transparet: rgba(128, 128, 128, 0.396);
   --color-almost-transparet: rgba(255, 255, 255, 0.084);
+  --color-text-background: rgba(0, 0, 0, 0.509);
   --color-message: rgb(17, 153, 17);
+  --color-menu: #363636;
 }
 
 html,
@@ -21,6 +23,15 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
 }
 
 h2 {
@@ -36,6 +47,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   font-family: "Teko", sans-serif;
+  margin: 0.5em 0;
   font-weight: 400;
   font-style: normal;
   font-size: 1.7em;
@@ -48,6 +60,15 @@ h2 {
   flex-direction: row;
   align-items: center;
   gap: 0.5em;
+}
+
+#header h1 {
+  margin: 0;
+}
+
+#header div img {
+  height: 3em;
+  width: auto;
 }
 
 .logo {
@@ -68,15 +89,10 @@ h2 {
   opacity: 1;
 }
 
-#header div img {
-  height: 3em;
-  width: auto;
-}
-
 #header p {
   text-align: center;
   font-size: 0.8em;
-  padding: 0;
+  padding: 1em 0 0 0;
   margin: 0;
 }
 
@@ -94,45 +110,50 @@ h2 {
   transition: box-shadow 0.3s ease;
 }
 
-#menu:hover {
-  box-shadow: 0 0 1em var(--color-shadow);
-}
-
 #menu img {
   width: 2.5em;
+}
+
+#menu img:hover {
+  box-shadow: 0 0 1em var(--color-shadow);
 }
 
 #nav ul {
   display: none;
   list-style: none;
   flex-direction: column;
-  background-color: var(--color-semi-transparet);
+  justify-content: space-between;
+  background-color: var(--color-menu);
   border-radius: 0.5em;
   position: fixed;
   top: 3.5em;
   right: 0.7em;
   gap: 1em;
+  min-width: 5em;
   padding: 0.5em 1em;
+  align-items: center;
   text-align: center;
   z-index: 999;
 }
 
 #nav ul li {
   text-decoration: none;
-  background-color: var(--color-shadow);
-  padding: 0.3em 0.5em;
+  width: 100%;
   border-radius: 0.5em;
+  padding: 0.3em 0.5em;
 }
 
 #nav ul a {
   text-decoration: none;
-  color: var(--color-white);
+  color: var(--color-light-gray);
   font-size: 0.9em;
   font-weight: 600;
+  transition: font-size 0.3s ease, color 0.3s ease;
 }
 
 #nav ul a:hover {
-  color: var(--color-light-gray);
+  color: var(--color-white);
+  font-size: 0.95em;
 }
 
 #nav ul.active {
@@ -156,19 +177,30 @@ h2 {
   align-items: center;
   min-height: 60em;
   text-align: center;
+  background-color: #000000;
+  flex-grow: 1;
+}
+
+#main div {
+  background-color: var(--color-text-background);
+  padding: 1.1em;
+  border-radius: 1em;
+  margin: 0 1em;
 }
 
 #main h3 {
   font-size: 1.5em;
   font-weight: 400;
   word-wrap: break-word;
-  margin-bottom: 0.7em;
+  margin: 0 0 0.7em 0;
+  padding: 0;
 }
 
 #main p {
   font-size: 1em;
   word-wrap: break-word;
   margin: 0;
+  padding: 0;
 }
 
 #main a {
@@ -201,6 +233,11 @@ h2 {
   padding-top: 2em;
 }
 
+#plans h2 {
+  margin: 0;
+  padding: 0 0 1em 0;
+}
+
 #cards {
   display: flex;
   flex-direction: row;
@@ -214,7 +251,7 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--color-almost-transparet);
-  padding: 2em 3em 0 3em;
+  padding: 2.5em 3em 0 3em;
   border-radius: 2em;
 }
 
@@ -295,7 +332,7 @@ form {
   color: var(--color-white);
   width: 11em;
   padding: 0.6em 0.7em;
-  margin-top: 1em;
+  margin-top: 2em;
   font-weight: 600;
   border: 2px solid transparent;
   cursor: pointer;
@@ -343,7 +380,12 @@ form {
   align-items: center;
   background-color: var(--color-dark-gray);
   text-align: center;
-  margin: 2em 0 3em 0;
+  margin: 3em 0 3em 0;
+}
+
+#about h2 {
+  margin: 0;
+  padding: 0 0 1em 0;
 }
 
 #about img {
@@ -355,7 +397,7 @@ form {
   display: flex;
   flex-direction: column;
   width: 67em;
-  gap: 2em;
+  gap: 2.5em;
   padding-top: 2em;
 }
 
@@ -386,7 +428,7 @@ form {
 #contact {
   background-color: var(--color-black);
   text-align: center;
-  padding-top: 2em;
+  padding: 2em 0;
 }
 
 #contact div {
@@ -396,18 +438,16 @@ form {
 }
 
 #contact span {
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 400;
   padding-bottom: 1em;
-}
-
-#captcha {
-  color: var(--color-light-gray);
-  font-size: 0.6em;
-  margin: 2em 0 2em 0;
+  color: var(--color-gray);
 }
 
 #contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0 auto;
 }
 
@@ -427,13 +467,14 @@ textarea {
 }
 
 #contact form textarea {
-  max-width: 45em;
-  min-width: 20em;
+  max-width: 40em;
+  min-width: 40em;
   max-height: 15em;
-  min-height: 2em;
+  min-height: 7em;
 }
 
 #counter {
+  align-self: end;
   margin: 0.4em 0 1.5em 0;
   text-align: right;
   color: var(--color-light-gray);
@@ -450,6 +491,10 @@ textarea {
   border-radius: 0.5em;
   padding: 0.6em 0;
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#contact form button {
+  width: 12em;
 }
 
 #contact form button:hover {
@@ -491,9 +536,14 @@ textarea {
 
 /*________medium________*/
 @media (max-width: 1050px) {
+  #wrapper {
+    height: auto;
+  }
+
   /*main*/
   #main {
     min-height: 40em;
+    flex-grow: 0;
   }
 
   /*plans*/
@@ -502,7 +552,7 @@ textarea {
   }
 
   .card {
-    padding: 1em 1.5em;
+    padding: 2.5em 1.5em 0 1.5em;
   }
 
   .plan-info {
@@ -598,6 +648,30 @@ textarea {
 }
 
 /*________small________*/
+@media (max-width: 700px) {
+  /*form*/
+  #contact form input,
+  textarea {
+    width: 25em;
+    margin: 0 auto;
+  }
+
+  #contact form input {
+    height: 1.5em;
+    margin-bottom: 0.8em;
+  }
+
+  #contact form textarea {
+    max-width: 25em;
+    min-width: 25em;
+  }
+
+  .success-msg {
+    font-size: 0.7em;
+    font-weight: 400;
+  }
+}
+
 @media (max-width: 650px) {
   /*main*/
   #main {
@@ -617,21 +691,13 @@ textarea {
 
   .card {
     max-width: 22em;
-    padding: 1em;
+    padding: 1.5em 1em 0 1em;
     margin: 0 auto;
   }
 
   .plan-info {
     max-width: 22em;
   }
-
-  /* .plan-info-small {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 2em;
-    margin-bottom: 1em;
-  } */
 
   .plan-info-small h5 {
     font-size: 1em;
@@ -642,39 +708,13 @@ textarea {
   }
 
   .plan-button {
-    margin-top: 1em;
+    margin-top: 2em;
   }
-}
-
-/*________small________*/
-@media (max-width: 700px) {
-  /*form*/
-  #contact form input,
-  textarea {
-    width: 25em;
-    margin: 0 auto;
-  }
-  #contact form input {
-    height: 1.5em;
-    margin-bottom: 0.8em;
-  }
-
-  #contact form textarea {
-    max-width: 25em;
-  }
-
-  .success-msg {
-    font-size: 0.7em;
-    font-weight: 400;
-  }
-}
-
-@media (max-width: 650px) {
   /*about*/
   #info {
     max-width: 25em;
     gap: 1em;
-    margin: 2em;
+    margin: 0 2em;
   }
 
   .info-row {
