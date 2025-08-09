@@ -1,19 +1,12 @@
 # Project Structure
 
 rpshieldweb/
-
 ├── assets/ # images, logo, icons
-
 ├── scripts/
-
 │ └── index.js # menu, forms behaviours
-
 ├── styles/
-
 │ └── index.css # styles
-
 ├── index.html # layout
-
 └── README.md # Project documentation
 
 ---
