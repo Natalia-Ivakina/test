@@ -46,7 +46,8 @@ allRequestButtons.forEach((requestBtn) => {
 /**
  * send msg button
  */
-const key = "259f7c43-d981-47b7-af99-d553c5f37819";
+ //for test purpose
+const key = "33802696-55dc-495c-a5f6-eb29ec5b23c7";
 const counter = document.getElementById("counter");
 const messageInput = document.getElementById("message");
 
