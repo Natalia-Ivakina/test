@@ -1,0 +1,743 @@
+:root {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray: rgb(145, 145, 145);
+  --color-light-gray: rgb(164, 164, 164);
+  --color-dark-gray: rgb(22, 22, 22);
+  --color-accent: rgb(79, 79, 171);
+  --color-button: rgb(49, 49, 153);
+  --color-transparet: rgba(255, 255, 255, 0);
+  --color-shadow: rgba(112, 110, 110, 0.6);
+  --color-semi-transparet: rgba(128, 128, 128, 0.396);
+  --color-almost-transparet: rgba(255, 255, 255, 0.084);
+  --color-text-background: rgba(0, 0, 0, 0.509);
+  --color-message: rgb(17, 153, 17);
+  --color-menu: #363636;
+}
+
+html,
+body {
+  font-family: "Montserrat", arial, sans-serif;
+  background-color: var(--color-dark-gray);
+  color: var(--color-white);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+h2 {
+  font-family: "Archivo Black", arial, sans-serif;
+  color: var(--color-accent);
+  font-weight: 900;
+}
+
+/*________________HEADER________________*/
+#header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Teko", sans-serif;
+  margin: 0.5em 0;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.7em;
+  letter-spacing: 0.08em;
+  transform: scaleY(0.9);
+}
+
+#header div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#header h1 {
+  margin: 0;
+}
+
+#header div img {
+  height: 3em;
+  width: auto;
+}
+
+.logo {
+  position: relative;
+}
+
+.purple {
+  position: absolute;
+  top: 1;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.purple:hover {
+  opacity: 1;
+}
+
+#header p {
+  text-align: center;
+  font-size: 0.8em;
+  padding: 1em 0 0 0;
+  margin: 0;
+}
+
+/*________________MENU________________*/
+#menu {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: var(--color-transparet);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+#menu img {
+  width: 2.5em;
+}
+
+#menu img:hover {
+  box-shadow: 0 0 1em var(--color-shadow);
+}
+
+#nav ul {
+  display: none;
+  list-style: none;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-menu);
+  border-radius: 0.5em;
+  position: fixed;
+  top: 3.5em;
+  right: 0.7em;
+  gap: 1em;
+  min-width: 5em;
+  padding: 0.5em 1em;
+  align-items: center;
+  text-align: center;
+  z-index: 999;
+}
+
+#nav ul li {
+  text-decoration: none;
+  width: 100%;
+  border-radius: 0.5em;
+  padding: 0.3em 0.5em;
+}
+
+#nav ul a {
+  text-decoration: none;
+  color: var(--color-light-gray);
+  font-size: 0.9em;
+  font-weight: 600;
+  transition:
+    font-size 0.3s ease,
+    color 0.3s ease;
+}
+
+#nav ul a:hover {
+  color: var(--color-white);
+  font-size: 0.95em;
+}
+
+#nav ul.active {
+  display: flex;
+}
+
+/*________________MAIN________________*/
+#main {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    url("../assets/bg_5760.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60em;
+  text-align: center;
+  background-color: #000000;
+  flex-grow: 1;
+}
+
+#main div {
+  background-color: var(--color-text-background);
+  padding: 1.1em;
+  border-radius: 1em;
+  margin: 0 1em;
+}
+
+#main h3 {
+  font-size: 1.5em;
+  font-weight: 400;
+  word-wrap: break-word;
+  margin: 0 0 0.7em 0;
+  padding: 0;
+}
+
+#main p {
+  font-size: 1em;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 0;
+}
+
+#main a {
+  text-decoration: none;
+  background-color: var(--color-button);
+  color: var(--color-white);
+  padding: 0.6em 2em;
+  font-weight: 700;
+  margin-top: 2em;
+  border-radius: 0.5em;
+  transition:
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+#main a:hover {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 1em var(--color-shadow);
+}
+
+.plan-button:hover {
+  background-color: var(--color-accent);
+}
+
+/*________________PLANS________________*/
+#plans {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  background-color: var(--color-black);
+  padding-top: 2em;
+}
+
+#plans h2 {
+  margin: 0;
+  padding: 0 0 1em 0;
+}
+
+#cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 6em;
+  margin: 2em 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-almost-transparet);
+  padding: 2.5em 3em 0 3em;
+  border-radius: 2em;
+}
+
+.plan-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 23em;
+  flex-grow: 1;
+}
+
+.img-square {
+  border-radius: 10%;
+}
+
+.plan-info h5 {
+  font-size: 1.5em;
+  font-weight: 400;
+  margin: 0;
+  padding: 0.6em 0;
+}
+
+.plan-info h6 {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--color-gray);
+  margin: 0;
+  padding-bottom: 1em;
+}
+
+.plan-info p,
+ul {
+  color: var(--color-gray);
+  font-size: 1em;
+  font-weight: 400;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.plan-info ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-top: 1em;
+  gap: 0.5em;
+
+  margin: 0;
+}
+
+.plan-info li {
+  display: flex;
+  align-items: start;
+  gap: 0.5em;
+
+  margin: 0;
+  padding: 0;
+}
+
+ul img {
+  width: 1em;
+
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+  padding: 0;
+}
+
+.plan-request,
+.plan-button {
+  align-self: center;
+  background-color: var(--color-button);
+  color: var(--color-white);
+  width: 11em;
+  padding: 0.6em 0.7em;
+  margin-top: 2em;
+  font-weight: 600;
+  border: 2px solid transparent;
+  cursor: pointer;
+  border-radius: 0.5em;
+  transition:
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.plan-request:hover,
+.plan-button:hover {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 1em var(--color-shadow);
+}
+
+.plan-button {
+  width: 6.3em;
+}
+
+.plan-input {
+  height: 1.5em;
+  background-color: var(--color-semi-transparet);
+  width: 12em;
+  border-radius: 0.5em;
+  color: var(--color-white);
+  padding: 0.5em;
+  border: none;
+  margin-right: 1em;
+}
+
+#plan1-form,
+#plan2-form {
+  display: none;
+}
+
+#plan1-message,
+#plan2-message {
+  visibility: hidden;
+  color: var(--color-message);
+  margin: 0.5em 0;
+}
+
+/*________________ABOUT________________*/
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-dark-gray);
+  text-align: center;
+  margin: 3em 0 3em 0;
+}
+
+#about h2 {
+  margin: 0;
+  padding: 0 0 1em 0;
+}
+
+#about img {
+  border-radius: 2em;
+  width: 28em;
+}
+
+#info {
+  display: flex;
+  flex-direction: column;
+  width: 67em;
+  gap: 2.5em;
+  padding-top: 2em;
+}
+
+.info-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.info-row div {
+  padding: 0 2em;
+}
+
+.info-row div h5 {
+  font-weight: 400;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.info-row div p {
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.5;
+  color: var(--color-light-gray);
+}
+
+/*________________CONTACT________________*/
+#contact {
+  background-color: var(--color-black);
+  text-align: center;
+  padding: 2em 0;
+}
+
+#contact div {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+
+#contact span {
+  font-size: 1.1em;
+  font-weight: 400;
+  padding-bottom: 1em;
+  color: var(--color-gray);
+}
+
+#contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#contact form input,
+textarea {
+  background-color: var(--color-dark-gray);
+  width: 40em;
+  border-radius: 0.5em;
+  color: var(--color-white);
+  padding: 0.5em;
+  border: none;
+}
+
+#contact form input {
+  height: 2em;
+  margin-bottom: 1em;
+}
+
+#contact form textarea {
+  max-width: 40em;
+  min-width: 40em;
+  max-height: 15em;
+  min-height: 7em;
+}
+
+#counter {
+  align-self: end;
+  margin: 0.4em 0 1.5em 0;
+  text-align: right;
+  color: var(--color-light-gray);
+  font-size: 0.6em;
+}
+
+#contact form button {
+  background-color: var(--color-button);
+  border: none;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 700;
+  color: var(--color-white);
+  border-radius: 0.5em;
+  padding: 0.6em 0;
+  transition:
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+#contact form button {
+  width: 12em;
+}
+
+#contact form button:hover {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 1em var(--color-shadow);
+}
+
+#contact a {
+  color: var(--color-accent);
+}
+
+.success-msg {
+  visibility: hidden;
+  color: var(--color-message);
+  margin: 0.5em 0;
+  min-height: 1.5em;
+  font-weight: 600;
+}
+
+/*________________FOOTER________________*/
+#footer {
+  text-align: center;
+  color: var(--color-light-gray);
+  font-size: 0.85em;
+  padding: 1em 0;
+}
+
+#footer img {
+  width: 2em;
+}
+
+/*________FOR DIFFERENT SCREENS________*/
+@media (max-width: 1300px) {
+  /*plans*/
+  #cards {
+    gap: 4em;
+  }
+}
+
+/*________medium________*/
+@media (max-width: 1050px) {
+  #wrapper {
+    height: auto;
+  }
+
+  /*main*/
+  #main {
+    min-height: 40em;
+    flex-grow: 0;
+  }
+
+  /*plans*/
+  #cards {
+    gap: 2em;
+  }
+
+  .card {
+    padding: 2.5em 1.5em 0 1.5em;
+  }
+
+  .plan-info {
+    width: 20em;
+  }
+
+  .img-square {
+    width: 20em;
+  }
+
+  /*about*/
+  #about img {
+    width: 22em;
+    border-radius: 1.5em;
+  }
+
+  #info {
+    width: 46em;
+    gap: 1em;
+  }
+
+  .info-row div {
+    padding: 0 0.6em;
+  }
+
+  .info-row div h5 {
+    font-size: 1.1em;
+  }
+
+  .info-row div p {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 1000px) {
+  /*plans*/
+  .img-square {
+    width: 18em;
+  }
+
+  .plan-info {
+    width: 18em;
+  }
+
+  /*about*/
+  #info {
+    width: 42em;
+    gap: 1em;
+  }
+
+  #about img {
+    width: 20em;
+  }
+}
+
+@media (max-width: 900px) {
+  /*plans*/
+  .img-square {
+    width: 15em;
+  }
+
+  .plan-info {
+    width: 15em;
+  }
+
+  .plan-info h5 {
+    font-size: 1.2em;
+  }
+
+  .plan-info h6 {
+    font-size: 0.9em;
+  }
+
+  .plan-button {
+    width: 4em;
+    padding: 0.6em 0.5em;
+  }
+
+  .plan-input {
+    width: 10em;
+    margin-right: 0.8em;
+  }
+
+  /*about*/
+  #info {
+    width: 40em;
+    gap: 1em;
+  }
+
+  #about img {
+    width: 18em;
+  }
+}
+
+/*________small________*/
+@media (max-width: 700px) {
+  /*form*/
+  #contact form input,
+  textarea {
+    width: 25em;
+    margin: 0 auto;
+  }
+
+  #contact form input {
+    height: 1.5em;
+    margin-bottom: 0.8em;
+  }
+
+  #contact form textarea {
+    max-width: 25em;
+    min-width: 25em;
+  }
+
+  .success-msg {
+    font-size: 0.7em;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 650px) {
+  /*main*/
+  #main {
+    min-height: 23em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  /*plans*/
+  #cards {
+    flex-direction: column;
+    gap: 1em;
+    margin: 1em;
+  }
+
+  .card {
+    max-width: 22em;
+    padding: 1.5em 1em 0 1em;
+    margin: 0 auto;
+  }
+
+  .plan-info {
+    max-width: 22em;
+  }
+
+  .plan-info-small h5 {
+    font-size: 1em;
+  }
+
+  .img-square {
+    max-width: 17em;
+  }
+
+  .plan-button {
+    margin-top: 2em;
+  }
+  /*about*/
+  #info {
+    max-width: 25em;
+    gap: 1em;
+    margin: 0 2em;
+  }
+
+  .info-row {
+    flex-direction: column;
+    padding: 0 1em;
+  }
+
+  #about img {
+    max-width: 25em;
+    border-radius: 1.5em;
+    margin-bottom: 1em;
+  }
+
+  .reverse {
+    flex-direction: column-reverse;
+  }
+}
