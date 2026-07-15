@@ -1,18 +1,14 @@
 /**
- * menu toggle
+ * Navigation behaviour
  */
 document.addEventListener("DOMContentLoaded", () => {
-  const menuBtn = document.getElementById("menu");
-  const menuList = document.querySelector("#nav ul");
+  const navLinks = document.querySelectorAll("#nav a");
 
-  menuBtn.addEventListener("click", () => {
-    menuList.classList.toggle("active");
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!menuBtn.contains(e.target) && !menuList.contains(e.target)) {
-      menuList.classList.remove("active");
-    }
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.forEach((item) => item.classList.remove("active"));
+      link.classList.add("active");
+    });
   });
 });
 
@@ -46,7 +42,7 @@ allRequestButtons.forEach((requestBtn) => {
 /**
  * send msg button
  */
- //for test purpose
+//for test purpose
 const key = "33802696-55dc-495c-a5f6-eb29ec5b23c7";
 const counter = document.getElementById("counter");
 const messageInput = document.getElementById("message");
