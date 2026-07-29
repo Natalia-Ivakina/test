@@ -4,8 +4,8 @@
   --color-gray: rgb(145, 145, 145);
   --color-light-gray: rgb(164, 164, 164);
   --color-dark-gray: rgb(22, 22, 22);
-  --color-accent: rgb(79, 79, 171);
-  --color-button: rgb(49, 49, 153);
+  --color-accent: rgb(116, 116, 178);
+  --color-button: rgba(92, 92, 166, 0.56);
   --color-transparent: rgba(255, 255, 255, 0);
   --color-shadow: rgba(112, 110, 110, 0.6);
   --color-semi-transparent: rgba(128, 128, 128, 0.396);
@@ -83,7 +83,7 @@ h2 {
 #nav a:hover,
 #nav a.active {
   color: var(--color-white);
-  font-weight: 900;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.35);
 }
 
 /*________________HEADER________________*/
@@ -164,11 +164,15 @@ h2 {
   flex-grow: 1;
 }
 
-#main div {
+#top-information {
   background-color: var(--color-text-background);
   padding: 1.1em;
   border-radius: 1em;
   margin: 0 1em;
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  line-height: 1.5;
 }
 
 #main h3 {
@@ -186,26 +190,82 @@ h2 {
   padding: 0;
 }
 
-#main a {
+#top-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5em;
+}
+
+#top-buttons a {
   text-decoration: none;
   background-color: var(--color-button);
   color: var(--color-white);
-  padding: 0.6em 2em;
+  padding: 0.9em 3em;
+  font-size: 1.05em;
   font-weight: 700;
   margin-top: 2em;
-  border-radius: 0.5em;
+  border-radius: 0.6em;
+  border: 1px solid rgba(255, 255, 255, 0.067);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  box-shadow: 0 0 1.2em rgba(79, 79, 171, 0.55);
+
   transition:
     box-shadow 0.3s ease,
-    background-color 0.3s ease;
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
-#main a:hover {
+#top-buttons a:hover {
   background-color: var(--color-accent);
-  box-shadow: 0 0 1em var(--color-shadow);
+  box-shadow: 0 0 1.8em rgba(79, 79, 171, 0.85);
 }
 
-.plan-button:hover {
-  background-color: var(--color-accent);
+/*______________SCROLL HINT__________________*/
+.scroll-hint {
+  display: block;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  padding: 10px 16px 10px 16px;
+
+  color: var(--color-white);
+  font-size: 18px;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    0 3px 6px rgba(0, 0, 0, 0.4);
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  animation: bounce 1.6s infinite;
+  z-index: 3;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.scroll-hint:hover {
+  background: rgba(49, 49, 153, 0.454);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
 }
 
 /*________________PLANS________________*/
@@ -227,7 +287,7 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 6em;
+  gap: clamp(1.5em, 4vw, 6em);
   margin: 2em 0;
 }
 
@@ -236,44 +296,66 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--color-almost-transparent);
-  padding: 2.5em 3em 0 3em;
-  border-radius: 2em;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5em 1.5em 0 1.5em;
+  border-radius: 1em;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--color-button);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .plan-info {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 23em;
+  width: 25em;
   flex-grow: 1;
 }
 
 .img-square {
-  border-radius: 10%;
+  border-radius: 1em;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
 }
 
 .plan-info h5 {
   font-size: 1.5em;
   font-weight: 400;
-  margin: 0;
+  margin: 0.5em;
   padding: 0.6em 0;
 }
 
 .plan-info h6 {
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: 700;
-  color: var(--color-gray);
-  margin: 0;
-  padding-bottom: 1em;
+  color: var(--color-accent);
+  padding: 0.5em;
+  margin: 0 0 0.5em 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.plan-info p {
+  line-height: 1.5;
+  min-height: calc(1.5em * 4);
+  margin: 1em 0 0 0;
 }
 
 .plan-info p,
 ul {
-  color: var(--color-gray);
+  color: var(--color-white);
   font-size: 1em;
   font-weight: 400;
   text-align: left;
-  margin: 0;
   padding: 0;
 }
 
@@ -282,30 +364,30 @@ ul {
   flex-wrap: wrap;
   list-style: none;
   padding-top: 1em;
-  gap: 0.5em;
-
+  gap: 1em;
   margin: 0;
 }
 
 .plan-info li {
   display: flex;
-  align-items: start;
+  align-items: center;
   gap: 0.5em;
-
   margin: 0;
   padding: 0;
 }
 
+ul i {
+  color: var(--color-accent);
+}
+
 ul img {
   width: 1em;
-
   margin: 0;
 }
 
 form {
   display: flex;
   flex-direction: column;
-
   margin: 0;
   padding: 0;
 }
@@ -316,12 +398,14 @@ form {
   background-color: var(--color-button);
   color: var(--color-white);
   width: 11em;
-  padding: 0.6em 0.7em;
+  padding: 0.6em 0.8em;
   margin-top: 2em;
   font-weight: 600;
-  border: 2px solid transparent;
   cursor: pointer;
+
   border-radius: 0.5em;
+  border: 1px solid rgba(255, 255, 255, 0.067);
+  box-shadow: 0 0 1.2em rgba(79, 79, 171, 0.55);
   transition:
     box-shadow 0.3s ease,
     background-color 0.3s ease;
@@ -402,6 +486,7 @@ form {
   font-weight: 400;
   font-size: 1.5em;
   margin: 0;
+  text-align: left;
 }
 
 .info-row div p {
@@ -409,6 +494,7 @@ form {
   font-size: 1em;
   line-height: 1.5;
   color: var(--color-light-gray);
+  text-align: left;
 }
 
 /*________________CONTACT________________*/
@@ -428,7 +514,7 @@ form {
   font-size: 1.1em;
   font-weight: 400;
   padding-bottom: 1em;
-  color: var(--color-gray);
+  color: var(--color-white);
 }
 
 #contact form {
@@ -470,13 +556,14 @@ textarea {
 
 #contact form button {
   background-color: var(--color-button);
-  border: none;
   cursor: pointer;
   font-size: 0.9em;
   font-weight: 700;
   color: var(--color-white);
   border-radius: 0.5em;
   padding: 0.6em 0;
+  border: 1px solid rgba(255, 255, 255, 0.067);
+  box-shadow: 0 0 1.2em rgba(79, 79, 171, 0.55);
   transition:
     box-shadow 0.3s ease,
     background-color 0.3s ease;
@@ -503,8 +590,47 @@ textarea {
   font-weight: 600;
 }
 
+/*________________SCROLL TO TOP________________*/
+#scrollTopBtn {
+  display: none;
+  border: none;
+  cursor: pointer;
+
+  position: fixed;
+  bottom: 20px;
+  left: auto;
+  right: 20px;
+
+  margin: auto;
+  padding: 16px 18px;
+  z-index: 3;
+  border-radius: 10px;
+
+  background: var(--color-button);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  color: #ebebeb;
+  font-size: 18px;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    0 3px 6px rgba(0, 0, 0, 0.4);
+
+  transition: all 0.1s ease;
+}
+
+#scrollTopBtn:hover {
+  transform: scale(1.1);
+}
+
 /*________________FOOTER________________*/
 #footer {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: var(--color-light-gray);
   font-size: 0.85em;
@@ -513,13 +639,26 @@ textarea {
 
 #footer img {
   width: 2em;
+  height: auto;
+}
+
+#footer p {
+  margin: 0;
 }
 
 /*________FOR DIFFERENT SCREENS________*/
-@media (max-width: 1300px) {
-  /*plans*/
-  #cards {
-    gap: 4em;
+@media (min-height: 1200px) {
+  /*main*/
+  #main {
+    min-height: 65em;
+  }
+}
+
+@media (max-width: 1920px) {
+  /*main*/
+  #main {
+    min-height: 45em;
+    flex-grow: 0;
   }
 }
 
@@ -529,26 +668,12 @@ textarea {
     height: auto;
   }
 
-  /*main*/
-  #main {
-    min-height: 40em;
-    flex-grow: 0;
-  }
-
-  /*plans*/
-  #cards {
-    gap: 2em;
-  }
-
+  /*plan*/
   .card {
     padding: 2.5em 1.5em 0 1.5em;
   }
 
   .plan-info {
-    width: 20em;
-  }
-
-  .img-square {
     width: 20em;
   }
 
@@ -577,15 +702,6 @@ textarea {
 }
 
 @media (max-width: 1000px) {
-  /*plans*/
-  .img-square {
-    width: 18em;
-  }
-
-  .plan-info {
-    width: 18em;
-  }
-
   /*about*/
   #info {
     width: 42em;
@@ -599,12 +715,8 @@ textarea {
 
 @media (max-width: 900px) {
   /*plans*/
-  .img-square {
-    width: 15em;
-  }
-
   .plan-info {
-    width: 15em;
+    width: 18em;
   }
 
   .plan-info h5 {
@@ -612,7 +724,7 @@ textarea {
   }
 
   .plan-info h6 {
-    font-size: 0.9em;
+    font-size: 1.1em;
   }
 
   .plan-button {
@@ -637,7 +749,36 @@ textarea {
 }
 
 /*________small________*/
+@media (max-width: 750px) {
+  /*plans*/
+  #cards {
+    flex-direction: column;
+    gap: 2em;
+    margin: 1em;
+    align-items: center;
+  }
+
+  .plan-info {
+    width: 24em;
+  }
+
+  .img-square {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+/*________small________*/
 @media (max-width: 700px) {
+  #nav {
+    gap: 1em;
+    justify-content: center;
+  }
+
+  /*plans*/
+  .plan-info {
+    width: 22em;
+  }
+
   /*form*/
   #contact form input,
   textarea {
@@ -662,43 +803,15 @@ textarea {
 }
 
 @media (max-width: 650px) {
-  /*main*/
-  #main {
-    min-height: 23em;
-  }
-
   h2 {
     font-size: 1.2em;
   }
 
-  /*plans*/
-  #cards {
+  #top-buttons {
     flex-direction: column;
-    gap: 1em;
-    margin: 1em;
+    gap: 0;
   }
 
-  .card {
-    max-width: 22em;
-    padding: 1.5em 1em 0 1em;
-    margin: 0 auto;
-  }
-
-  .plan-info {
-    max-width: 22em;
-  }
-
-  .plan-info-small h5 {
-    font-size: 1em;
-  }
-
-  .img-square {
-    max-width: 17em;
-  }
-
-  .plan-button {
-    margin-top: 2em;
-  }
   /*about*/
   #info {
     max-width: 25em;

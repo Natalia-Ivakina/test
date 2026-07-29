@@ -8,6 +8,10 @@
       href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <link rel="icon" href="assets/w_logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="style/index.css" />
   </head>
@@ -35,16 +39,23 @@
 
       <!--________________MAIN________________-->
       <section id="main">
-        <div>
+        <div id="top-information">
           <h3>No cybersecurity expert in the family? Now you’ve got one.</h3>
           <p>
             RP Shield offers trusted scam support and security for seniors,
             families, and small businesses.
           </p>
         </div>
-        <!-- <a href="#plans">GET STARTED</a> -->
-        <a href="#plans">VIEW PLANS</a>
+        <div id="top-buttons">
+          <a href="#plans">VIEW PLANS</a>
+          <a href="#contact">CONTACT US</a>
+        </div>
       </section>
+
+      <!-- Scroll hint-->
+      <div class="scroll-hint">
+        <i class="fa-solid fa-angles-down"></i>
+      </div>
 
       <!--_______________PLANS_______________-->
 
@@ -58,7 +69,7 @@
               <div class="plan-info-small">
                 <img class="img-square" src="assets/plan1.webp" alt="Plan1" />
                 <div>
-                  <h5>Home Protection Plan</h5>
+                  <h5>Home Protection</h5>
                   <h6>$30/month per user</h6>
                 </div>
               </div>
@@ -68,18 +79,16 @@
               </p>
               <ul>
                 <li>
-                  <img src="assets/chek_circle.png" alt="Logo" />
-                  <p>A real person to call if you’re scammed</p>
+                  <i class="fa-regular fa-circle-check"></i>
+                  A real person to call if you’re scammed
                 </li>
                 <li>
-                  <img src="assets/chek_circle.png" alt="Logo" />
-                  <p>Blocks known scam/malware links and unwanted ads</p>
+                  <i class="fa-regular fa-circle-check"></i>
+                  Blocks known scam/malware links and unwanted ads
                 </li>
                 <li>
-                  <img src="assets/chek_circle.png" alt="Logo" />
-                  <p>
-                    Monitoring to detect malicious activity on your computer
-                  </p>
+                  <i class="fa-regular fa-circle-check"></i>
+                  Monitoring to detect malicious activity on your computer
                 </li>
               </ul>
             </div>
@@ -113,7 +122,7 @@
               <div class="plan-info-small">
                 <img class="img-square" src="assets/plan2.webp" alt="Plan2" />
                 <div>
-                  <h5>Business Protection Plan</h5>
+                  <h5>Business Protection</h5>
                   <h6>$50/month per user</h6>
                 </div>
               </div>
@@ -123,19 +132,18 @@
               </p>
               <ul>
                 <li>
-                  <img src="assets/chek_circle.png" alt="Logo" />
-                  <p>Includes everything in the Home Plan</p>
+                  <i class="fa-regular fa-circle-check"></i>
+                  Includes everything in the Home Plan
                 </li>
                 <li>
-                  <img src="assets/chek_circle.png" alt="Logo" />
-                  <p>Tailored support for business devices</p>
+                  <i class="fa-regular fa-circle-check"></i>
+                  Tailored support for business devices
                 </li>
                 <li>
-                  <img src="assets/chek_circle.png" alt="Logo" />
-                  <p>
-                    Monitoring that helps spot threats early—before they become
-                    expensive problems
-                  </p>
+                  <i class="fa-regular fa-circle-check"></i>
+
+                  Monitoring that helps spot threats early - before they become
+                  expensive problems
                 </li>
               </ul>
             </div>
@@ -257,13 +265,22 @@
           <p class="success-msg"></p>
         </div>
       </section>
+
+      <!--_____________Go to top____________-->
+      <button id="scrollTopBtn" onclick="scrollToTop()">
+        <i class="fa-solid fa-angles-up"></i>
+      </button>
+
       <!--_______________FOOTER______________-->
       <section id="footer">
-        <p>Copyright © 2025 RP Shield Solutions Inc.</p>
+        <p>Copyright © 2025</p>
         <img src="assets/w_logo.png" alt="Logo" />
+        <p>RP Shield Solutions Inc.</p>
       </section>
     </div>
     <!--_______________SCRIPTS_______________-->
     <script src="scripts/index.js"></script>
+    <script src="scripts/gototop_button.js"></script>
+    <script src="scripts/scroll_hint_button.js"></script>
   </body>
 </html>

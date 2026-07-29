@@ -4,12 +4,53 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll("#nav a");
 
+  //click highlight
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       navLinks.forEach((item) => item.classList.remove("active"));
       link.classList.add("active");
     });
   });
+
+  const sections = Array.from(document.querySelectorAll("section[id]")).filter(
+    (section) => document.querySelector(`#nav a[href="#${section.id}"]`),
+  );
+
+  //scroll highlight
+  const setActiveLink = (id) => {
+    navLinks.forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+    });
+  };
+
+  // section border
+  const getReferenceLine = () => window.innerHeight * 0.5;
+
+  let ticking = false;
+
+  const updateActiveSection = () => {
+    const referenceLine = getReferenceLine();
+    let currentId = sections[0]?.id;
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= referenceLine) {
+        currentId = section.id;
+      }
+    });
+
+    setActiveLink(currentId);
+    ticking = false;
+  };
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(updateActiveSection);
+      ticking = true;
+    }
+  });
+
+  updateActiveSection();
 });
 
 /**
