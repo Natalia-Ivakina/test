@@ -1,0 +1,8 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://rpshield.ca/sitemap.xml
+
+# AI documentation
+# LLM: https://rpshield.ca/llms.txt

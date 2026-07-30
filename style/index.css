@@ -51,21 +51,32 @@ h2 {
   z-index: 1000;
 
   display: flex;
-  flex-direction: row;
   gap: 2em;
-  justify-content: flex-end;
+  justify-content: space-between;
 
   margin: 0;
   padding: 1.5em 2em;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
 
+  color: var(--color-light-gray);
   background-color: rgba(20, 20, 20, 0.55);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+#nav > div:first-child i {
+  margin-right: 6px;
+}
+
+#nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  justify-content: flex-end;
 }
 
 #nav a {
@@ -770,6 +781,16 @@ textarea {
 /*________small________*/
 @media (max-width: 700px) {
   #nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+
+  #nav div {
+    font-size: 0.8em;
+  }
+
+  #nav-links {
     gap: 1em;
     justify-content: center;
   }
