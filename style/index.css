@@ -855,3 +855,10 @@ textarea {
     flex-direction: column-reverse;
   }
 }
+
+@media (max-width: 550px) {
+  /*plans*/
+  .plan-info {
+    width: 18em;
+  }
+}
