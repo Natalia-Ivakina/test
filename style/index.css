@@ -27,6 +27,8 @@ html {
 
 html,
 body {
+  max-width: 100%;
+  overflow-x: clip;
   font-family: "Montserrat", arial, sans-serif;
   background-color: var(--color-dark-gray);
   color: var(--color-white);
@@ -802,7 +804,7 @@ textarea {
   }
 
   #nav-links {
-    gap: 1em;
+    gap: 1.7em;
     justify-content: center;
   }
 
@@ -812,20 +814,17 @@ textarea {
   }
 
   /*form*/
+  #contact form {
+    width: calc(100% - 2em);
+  }
+
   #contact form input,
-  textarea {
-    width: 25em;
-    margin: 0 auto;
-  }
-
-  #contact form input {
-    height: 1.5em;
-    margin-bottom: 0.8em;
-  }
-
   #contact form textarea {
-    max-width: 25em;
-    min-width: 25em;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .success-msg {
@@ -846,9 +845,9 @@ textarea {
 
   /*about*/
   #info {
+    width: calc(100% - 2em);
     max-width: 25em;
-    gap: 1em;
-    margin: 0 2em;
+    margin: 0 auto;
   }
 
   .info-row {
@@ -857,9 +856,9 @@ textarea {
   }
 
   #about img {
+    width: calc(100% - 2em);
     max-width: 25em;
-    border-radius: 1.5em;
-    margin-bottom: 1em;
+    height: auto;
   }
 
   .reverse {
@@ -869,7 +868,15 @@ textarea {
 
 @media (max-width: 550px) {
   /*plans*/
+  #cards {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .card {
+    width: 100%;
+  }
   .plan-info {
-    width: 18em;
+    width: 100%;
   }
 }
