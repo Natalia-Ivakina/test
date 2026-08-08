@@ -29,6 +29,7 @@ html,
 body {
   max-width: 100%;
   overflow-x: clip;
+  overflow-x: hidden;
   font-family: "Montserrat", arial, sans-serif;
   background-color: var(--color-dark-gray);
   color: var(--color-white);
@@ -492,6 +493,7 @@ form {
   display: flex;
   flex-direction: column;
   width: 67em;
+  max-width: 100%;
   gap: 2.5em;
   padding-top: 2em;
 }
@@ -879,4 +881,13 @@ textarea {
   .plan-info {
     width: 100%;
   }
+}
+
+img,
+input,
+textarea,
+.plan-info,
+#info,
+.card {
+  max-width: 100%;
 }
